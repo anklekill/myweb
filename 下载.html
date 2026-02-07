@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>水电文化展示网 - 传承水电精神 弘扬水电文化</title>
+    <!-- 引入Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入Font Awesome图标 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- 自定义配置 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#165DFF', // 主色调（蓝色，契合水电主题）
+                        secondary: '#0E42B3',
+                        accent: '#36BFFA',
+                        dark: '#1E293B',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            }
+            .bg-overlay {
+                background-color: rgba(0, 0, 0, 0.5);
+            }
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800 bg-gray-50">
+    <!-- 导航栏 -->
+    <header id="navbar" class="fixed w-full top-0 z-50 transition-all duration-300 bg-white/95 shadow-md">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="#" class="flex items-center gap-2">
+                <i class="fa-solid fa-water text-primary text-2xl"></i>
+                <span class="text-xl font-bold text-primary">水电文化网</span>
+            </a>
+            
+            <!-- 桌面端导航 -->
+            <nav class="hidden md:flex gap-6">
+                <a href="#home" class="text-dark hover:text-primary transition-colors">首页</a>
+                <a href="#history" class="text-dark hover:text-primary transition-colors">水电历史</a>
+                <a href="#projects" class="text-dark hover:text-primary transition-colors">经典工程</a>
+                <a href="#culture" class="text-dark hover:text-primary transition-colors">文化价值</a>
+                <a href="#contact" class="text-dark hover:text-primary transition-colors">关于我们</a>
+            </nav>
+            
+            <!-- 移动端菜单按钮 -->
+            <button id="menuBtn" class="md:hidden text-dark text-xl">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+        
+        <!-- 移动端导航菜单 -->
+        <div id="mobileMenu" class="md:hidden hidden bg-white shadow-lg absolute w-full">
+            <div class="container mx-auto px-4 py-2 flex flex-col gap-3">
+                <a href="#home" class="py-2 text-dark hover:text-primary transition-colors">首页</a>
+                <a href="#history" class="py-2 text-dark hover:text-primary transition-colors">水电历史</a>
+                <a href="#projects" class="py-2 text-dark hover:text-primary transition-colors">经典工程</a>
+                <a href="#culture" class="py-2 text-dark hover:text-primary transition-colors">文化价值</a>
+                <a href="#contact" class="py-2 text-dark hover:text-primary transition-colors">关于我们</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 首页横幅 -->
+    <section id="home" class="pt-20 min-h-screen flex items-center bg-cover bg-center" style="background-image: url('https://picsum.photos/id/15/1920/1080');">
+        <div class="w-full h-full bg-overlay">
+            <div class="container mx-auto px-4 py-20 md:py-32">
+                <div class="max-w-2xl text-white">
+                    <h1 class="text-[clamp(2rem,5vw,4rem)] font-bold mb-6 text-shadow leading-tight">
+                        传承水电精神<br>弘扬水电文化
+                    </h1>
+                    <p class="text-lg md:text-xl mb-8 text-shadow">
+                        探索水力发电的发展历程，领略大国工程的磅礴气势，感受水电文化的独特魅力
+                    </p>
+                    <a href="#history" class="inline-block bg-primary hover:bg-secondary text-white font-medium px-8 py-3 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl">
+                        了解更多 <i class="fa-solid fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 水电历史板块 -->
+    <section id="history" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-dark mb-4">水电发展的百年历程</h2>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
+                <p class="mt-6 text-gray-600 max-w-2xl mx-auto">
+                    从最初的小型水力发电站到如今的世界级巨型水电工程，水电技术的发展见证了人类利用自然、改造自然的伟大历程
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- 历史节点1 -->
+                <div class="bg-gray-50 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-hourglass-start text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">萌芽阶段</h3>
+                    <p class="text-gray-600">19世纪末-20世纪初，世界第一座水电站建成，水电技术开始萌芽，我国也开始探索水电发展之路。</p>
+                </div>
+                
+                <!-- 历史节点2 -->
+                <div class="bg-gray-50 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-gears text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">起步阶段</h3>
+                    <p class="text-gray-600">20世纪中叶，我国开始自主建设水电站，一批中小型水电站相继落成，奠定了水电发展的基础。</p>
+                </div>
+                
+                <!-- 历史节点3 -->
+                <div class="bg-gray-50 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-rocket text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">快速发展</h3>
+                    <p class="text-gray-600">改革开放后，水电建设进入快车道，大型水电站如雨后春笋般涌现，技术水平大幅提升。</p>
+                </div>
+                
+                <!-- 历史节点4 -->
+                <div class="bg-gray-50 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-globe text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">世界领先</h3>
+                    <p class="text-gray-600">21世纪以来，我国水电技术和工程规模跃居世界前列，成为全球水电发展的引领者。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 经典工程展示 -->
+    <section id="projects" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-dark mb-4">世界级水电工程</h2>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
+                <p class="mt-6 text-gray-600 max-w-2xl mx-auto">
+                    一座座宏伟的水电工程，不仅是能源保障的基石，更是人类智慧与自然和谐共生的典范
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 工程1 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all group">
+                    <div class="h-60 overflow-hidden">
+                        <img src="https://picsum.photos/id/28/800/600" alt="三峡水电站" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">三峡水电站</h3>
+                        <p class="text-gray-600 mb-4">世界上最大的水力发电站，位于中国湖北省宜昌市，兼具防洪、发电、航运等综合效益。</p>
+                        <a href="#" class="text-primary font-medium hover:text-secondary transition-colors">
+                            查看详情 <i class="fa-solid fa-angle-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- 工程2 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all group">
+                    <div class="h-60 overflow-hidden">
+                        <img src="https://picsum.photos/id/29/800/600" alt="白鹤滩水电站" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">白鹤滩水电站</h3>
+                        <p class="text-gray-600 mb-4">全球在建规模最大、技术难度最高的水电工程，拥有世界最大的百万千瓦水轮发电机组。</p>
+                        <a href="#" class="text-primary font-medium hover:text-secondary transition-colors">
+                            查看详情 <i class="fa-solid fa-angle-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- 工程3 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all group">
+                    <div class="h-60 overflow-hidden">
+                        <img src="https://picsum.photos/id/30/800/600" alt="葛洲坝水电站" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">葛洲坝水电站</h3>
+                        <p class="text-gray-600 mb-4">长江上第一座大型水电站，是三峡工程的试验坝，为我国大型水电工程建设积累了宝贵经验。</p>
+                        <a href="#" class="text-primary font-medium hover:text-secondary transition-colors">
+                            查看详情 <i class="fa-solid fa-angle-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 文化价值板块 -->
+    <section id="culture" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-dark mb-4">水电文化的核心价值</h2>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
+                <p class="mt-6 text-gray-600 max-w-2xl mx-auto">
+                    水电文化不仅包含技术与工程的智慧，更蕴含着人与自然和谐发展的哲学思想
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- 价值1 -->
+                <div class="border border-gray-200 rounded-xl p-8 hover:border-primary transition-colors">
+                    <div class="text-primary text-3xl mb-4">
+                        <i class="fa-solid fa-leaf"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">绿色环保</h3>
+                    <p class="text-gray-600">
+                        水电作为清洁能源，不产生温室气体排放，是实现"双碳"目标的重要支撑，体现了人与自然和谐共生的发展理念。
+                    </p>
+                </div>
+                
+                <!-- 价值2 -->
+                <div class="border border-gray-200 rounded-xl p-8 hover:border-primary transition-colors">
+                    <div class="text-primary text-3xl mb-4">
+                        <i class="fa-solid fa-people-group"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">工匠精神</h3>
+                    <p class="text-gray-600">
+                        一代代水电建设者攻坚克难、精益求精的工匠精神，铸就了一座座不朽的工程丰碑，成为民族精神的重要组成部分。
+                    </p>
+                </div>
+                
+                <!-- 价值3 -->
+                <div class="border border-gray-200 rounded-xl p-8 hover:border-primary transition-colors">
+                    <div class="text-primary text-3xl mb-4">
+                        <i class="fa-solid fa-earth-asia"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">家国情怀</h3>
+                    <p class="text-gray-600">
+                        大型水电工程承载着国家发展的战略需求，体现了集中力量办大事的制度优势，彰显了大国担当和民族自信。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系/关于板块 -->
+    <section id="contact" class="py-20 bg-primary/5">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-md p-8 md:p-12">
+                <div class="text-center mb-10">
+                    <h2 class="text-2xl md:text-3xl font-bold text-dark mb-4">关于水电文化网</h2>
+                    <div class="w-16 h-1 bg-primary mx-auto"></div>
+                </div>
+                
+                <div class="text-gray-600 mb-8 text-center">
+                    <p class="mb-4">我们致力于传播水电文化，记录水电发展历程，展示水电工程成就，弘扬水电人精神。</p>
+                    <p>如果您有任何关于水电文化的资料、故事或建议，欢迎与我们联系！</p>
+                </div>
+                
+                <div class="flex flex-col md:flex-row justify-center gap-6 text-center">
+                    <div class="flex items-center justify-center gap-3">
+                        <i class="fa-solid fa-envelope text-primary text-xl"></i>
+                        <span>contact@shuidianwenhua.com</span>
+                    </div>
+                    <div class="flex items-center justify-center gap-3">
+                        <i class="fa-solid fa-phone text-primary text-xl"></i>
+                        <span>400-123-4567</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-10">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <div class="flex items-center gap-2 justify-center md:justify-start">
+                        <i class="fa-solid fa-water text-primary text-2xl"></i>
+                        <span class="text-xl font-bold">水电文化网</span>
+                    </div>
+                    <p class="mt-2 text-gray-400 text-sm">传承水电精神 弘扬水电文化</p>
+                </div>
+                
+                <div class="flex gap-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fa-brands fa-weixin text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fa-brands fa-weibo text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fa-brands fa-youtube text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400 text-sm">
+                <p>© 2025 水电文化网 版权所有 | 京ICP备12345678号</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 回到顶部按钮 -->
+    <button id="backToTop" class="fixed bottom-8 right-8 bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg opacity-0 invisible transition-all duration-300 hover:bg-secondary">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script>
+        // 移动端菜单切换
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            // 切换图标
+            const icon = menuBtn.querySelector('i');
+            if (icon.classList.contains('fa-bars')) {
+                icon.classList.replace('fa-bars', 'fa-xmark');
+            } else {
+                icon.classList.replace('fa-xmark', 'fa-bars');
+            }
+        });
+        
+        // 导航栏滚动效果
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('py-2');
+                navbar.classList.remove('py-3');
+            } else {
+                navbar.classList.add('py-3');
+                navbar.classList.remove('py-2');
+            }
+        });
+        
+        // 回到顶部按钮
+        const backToTopBtn = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.remove('opacity-0', 'invisible');
+                backToTopBtn.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopBtn.classList.add('opacity-0', 'invisible');
+                backToTopBtn.classList.remove('opacity-100', 'visible');
+            }
+        });
+        
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                // 关闭移动端菜单
+                mobileMenu.classList.add('hidden');
+                const icon = menuBtn.querySelector('i');
+                if (icon.classList.contains('fa-xmark')) {
+                    icon.classList.replace('fa-xmark', 'fa-bars');
+                }
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
