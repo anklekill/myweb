@@ -1,345 +1,525 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>航标船水流发电机 | 绿色赋能 航标永续</title>
-
-    <style>
-
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Microsoft YaHei", Arial, sans-serif; }
-
-        body { background-color: #f5f7fa; color: #333; line-height: 1.6; }
-
-        .container { width: 1200px; margin: 0 auto; padding: 0 20px; }
-
-        /* 头部样式 */
-
-        header { background-color: #2c3e50; color: #fff; padding: 20px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-
-        .header-content { display: flex; justify-content: space-between; align-items: center; }
-
-        .logo { font-size: 24px; font-weight: bold; }
-
-        nav ul { display: flex; list-style: none; }
-
-        nav li { margin-left: 30px; }
-
-        nav a { color: #fff; text-decoration: none; font-size: 16px; transition: color 0.3s; }
-
-        nav a:hover { color: #3498db; }
-
-        /* banner样式 */
-
-        .banner { background: linear-gradient(135deg, #3498db, #2980b9); color: #fff; padding: 80px 0; text-align: center; margin-bottom: 50px; }
-
-        .banner h1 { font-size: 40px; margin-bottom: 20px; }
-
-        .banner p { font-size: 18px; max-width: 800px; margin: 0 auto; }
-
-        /* 主体内容样式 */
-
-        .section { margin-bottom: 60px; background-color: #fff; padding: 40px; border-radius: 10px; box-shadow: 0 2px 15px rgba(0,0,0,0.05); }
-
-        .section h2 { font-size: 28px; margin-bottom: 30px; color: #2c3e50; border-left: 5px solid #3498db; padding-left: 15px; }
-
-        .section p { margin-bottom: 20px; font-size: 16px; color: #555; }
-
-        /* 优势列表样式 */
-
-        .advantage-list { list-style: none; display: flex; flex-wrap: wrap; gap: 20px; }
-
-        .advantage-item { flex: 1; min-width: 280px; background-color: #f8f9fa; padding: 25px; border-radius: 8px; transition: transform 0.3s; }
-
-        .advantage-item:hover { transform: translateY(-5px); }
-
-        .advantage-item h3 { font-size: 18px; margin-bottom: 15px; color: #3498db; }
-
-        /* 表格样式 */
-
-        .param-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-
-        .param-table th, .param-table td { border: 1px solid #eee; padding: 15px; text-align: left; }
-
-        .param-table th { background-color: #f8f9fa; color: #2c3e50; font-weight: bold; }
-
-        .param-table tr:hover { background-color: #fafafa; }
-
-        /* 底部样式 */
-
-        footer { background-color: #2c3e50; color: #fff; padding: 40px 0; text-align: center; }
-
-        .footer-content p { margin-bottom: 10px; font-size: 14px; }
-
-        /* 响应式样式 */
-
-        @media (max-width: 1200px) {
-
-            .container { width: 100%; }
-
+    <title>航标船水流发电机 - 绿色环保的水上供电解决方案</title>
+    <!-- 引入Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入Font Awesome图标 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- 自定义Tailwind配置 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#165DFF', // 主色调-海洋蓝
+                        secondary: '#36B37E', // 辅助色-环保绿
+                        dark: '#1E293B',
+                        light: '#F8FAFC'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
         }
-
-        @media (max-width: 768px) {
-
-            .header-content { flex-direction: column; gap: 15px; }
-
-            nav li { margin: 0 10px; }
-
-            .banner h1 { font-size: 30px; }
-
-            .section h2 { font-size: 24px; }
-
-            .advantage-list { flex-direction: column; }
-
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .section-padding {
+                padding: clamp(3rem, 8vw, 6rem) 0;
+            }
         }
-
     </style>
-
 </head>
-
-<body>
-
-<!-- 头部导航 -->
-
-    <header>
-
-        <div class="container header-content">
-
-            <div class="logo">航标船水流发电机</div>
-
-            <nav>
-
-                <ul>
-
-                    <li><a href="#home">首页</a></li>
-
-                    <li><a href="#about">项目初衷</a></li>
-
- <li><a href="#product">产品介绍</a></li>
-
-                    <li><a href="#param">技术参数</a></li>
-
- </ul>
-
-            </nav>
-
+<body class="font-sans text-dark bg-light antialiased">
+    <!-- 导航栏 -->
+    <header class="fixed w-full top-0 z-50 bg-white/90 backdrop-blur-sm shadow-sm transition-all duration-300">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <a href="#" class="flex items-center space-x-2">
+                    <i class="fa-solid fa-water text-primary text-2xl"></i>
+                    <span class="text-xl font-bold text-primary">航标发电</span>
+                </a>
+                
+                <!-- 桌面端导航 -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-dark hover:text-primary font-medium transition-colors">首页</a>
+                    <a href="#about" class="text-dark hover:text-primary font-medium transition-colors">项目介绍</a>
+                    <a href="#features" class="text-dark hover:text-primary font-medium transition-colors">产品优势</a>
+                    <a href="#working" class="text-dark hover:text-primary font-medium transition-colors">工作原理</a>
+                    <a href="#contact" class="text-dark hover:text-primary font-medium transition-colors">联系我们</a>
+                </nav>
+                
+                <!-- 移动端菜单按钮 -->
+                <button id="menuBtn" class="md:hidden text-dark hover:text-primary text-2xl">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
         </div>
-
+        
+        <!-- 移动端导航菜单 -->
+        <div id="mobileMenu" class="md:hidden hidden bg-white shadow-lg absolute w-full">
+            <div class="container mx-auto px-4 py-3 flex flex-col space-y-3">
+                <a href="#home" class="py-2 text-dark hover:text-primary font-medium transition-colors">首页</a>
+                <a href="#about" class="py-2 text-dark hover:text-primary font-medium transition-colors">项目介绍</a>
+                <a href="#features" class="py-2 text-dark hover:text-primary font-medium transition-colors">产品优势</a>
+                <a href="#working" class="py-2 text-dark hover:text-primary font-medium transition-colors">工作原理</a>
+                <a href="#contact" class="py-2 text-dark hover:text-primary font-medium transition-colors">联系我们</a>
+            </div>
+        </div>
     </header>
 
-
-
-<!-- 横幅区域 -->
-
-    <section class="banner" id="home">
-
-        <div class="container">
-
-            <h1>航标船水流发电机 | 绿色赋能 航标永续</h1>
-
-            <p>依托自然水流能，破解航标船供电痛点，打造清洁、稳定、低成本的水上供电新方案，守护航道安全，助力绿色发展</p>
-
+    <!-- 英雄区 -->
+    <section id="home" class="pt-24 pb-16 md:pt-32 md:pb-24 bg-gradient-to-b from-primary/5 to-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center gap-8 md:gap-16">
+                <div class="md:w-1/2 space-y-6">
+                    <h1 class="text-[clamp(2rem,5vw,3.5rem)] font-bold leading-tight text-shadow">
+                        航标船<span class="text-primary">水流发电机</span><br>
+                        绿色供电 智慧航海
+                    </h1>
+                    <p class="text-lg text-gray-600">
+                        专为水上航标船设计的高效水流发电机，利用自然水流发电，实现航标设备的自主供电，降低运维成本，助力海洋环保。
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#about" class="px-6 py-3 bg-primary text-white rounded-lg font-medium hover:bg-primary/90 transition-colors shadow-md hover:shadow-lg">
+                            了解详情
+                        </a>
+                        <a href="#contact" class="px-6 py-3 border border-primary text-primary rounded-lg font-medium hover:bg-primary/5 transition-colors">
+                            联系我们
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <img src="https://picsum.photos/id/1015/800/600" alt="航标船水流发电机" class="rounded-xl shadow-xl w-full h-auto object-cover">
+                </div>
+            </div>
         </div>
-
-</section>
-
-
-
-<!-- 主体内容 -->
-
-    <div class="container">
-
-<!-- 引言部分 -->
-
-        <section class="section">
-
-            <h2>首页 · 引言</h2>
-
-            <p>航标船，是水上航道的“明灯卫士”，默默坚守在江河湖海之上，为船舶航行指引方向、规避风险，其稳定运行直接关系到水上交通的安全与顺畅。传统航标船供电多依赖柴油发电机或蓄电池，柴油发电机不仅能耗高、污染环境，还需定期补给燃油，维护成本高昂；蓄电池则存在续航有限、需频繁充电更换的弊端，尤其在偏远水域、恶劣天气下，供电稳定性难以保障。</p>
-
-            <p>为破解这一行业痛点，我们依托水流能清洁可再生的核心优势，研发并推出航标船专用水流发电机，无需燃油、无需外接电源，仅依靠航道自然水流即可实现持续供电，为航标船打造“自给自足”的绿色供电解决方案，既降低运维成本，又助力水上交通绿色低碳发展，让每一座航标船都能稳定、高效、环保运行。</p>
-
-        </section>
-
-
-
-<!-- 项目初衷 -->
-
-        <section class="section" id="about">
-
- <h2>关于我们 · 项目初衷</h2>
-
-            <p>我们深耕水上交通配套设备领域，长期关注航标船运行过程中的供电难题。在实地调研中发现，多数航标船地处偏远航道，燃油补给不便，柴油发电机的噪音和废气排放不仅污染水体环境，还增加了航道管理部门的运维负担；而蓄电池供电模式，往往因续航不足导致航标设备（如信号灯、雷达、监控）中途断电，给船舶航行带来安全隐患。</p>
-
- <p>基于此，我们组建专业研发团队，结合航道水流特性、航标船结构特点，历经多次试验与优化，成功将水流发电机与航标船完美适配，研发出这款专为航标船设计的水流发电设备。我们的核心目标是：以清洁水流能为动力，解决航标船供电痛点，推动水上交通领域的节能降耗与环保升级，为航道安全保驾护航。</p>
-
-        </section>
-
-
-
-<!-- 产品介绍 -->
-
-        <section class="section" id="product">
-
-            <h2>产品介绍 · 航标船专用水流发电机</h2>
-
-<h3 style="font-size: 20px; margin: 25px 0 15px; color: #3498db;">一、产品核心定位</h3>
-
-            <p>专为航标船量身定制，依托航道自然水流动能，实现“水流发电+稳定供电”一体化，适配各类内河、近海航标船，无需改造船体核心结构，安装便捷、运行稳定，为航标船各类用电设备（信号灯、定位装置、监控系统、通讯设备等）提供持续、可靠的绿色电力。</p>
-
-
-
-            <h3 style="font-size: 20px; margin: 25px 0 15px; color: #3498db;">二、核心优势</h3>
-
-            <ul class="advantage-list">
-
-                <li class="advantage-item">
-
-                    <h3>绿色环保，零碳排放</h3>
-
-<p>无需燃油、无需燃煤，仅利用航道自然水流发电，运行过程中无噪音、无废气、无污染物排放，契合国家绿色低碳发展战略，守护水体生态环境。</p>
-
- </li>
-
-                <li class="advantage-item">
-
-                    <h3>自给自足，续航无限</h3>
-
-                    <p>只要航道有持续水流（流速≥0.5m/s即可启动发电），无需外接电源、无需定期补给，实现24小时不间断供电，彻底解决蓄电池续航短板。</p>
-
-                </li>
-
-                <li class="advantage-item">
-
-                    <h3>适配性强，安装便捷</h3>
-
-                    <p>采用模块化设计，体积小巧、重量轻便，可根据航标船船体尺寸、水流条件灵活调整安装位置，无需改造船体核心结构，现场安装仅需1-2天即可完成，不影响航标船正常运行。</p>
-
-                </li>
-
-                <li class="advantage-item">
-
-                    <h3>低耗运维，成本可控</h3>
-
-                    <p>设备结构简洁，核心部件采用耐腐蚀、抗冲击材质，适配水上潮湿、多盐雾、水流多变的复杂环境，故障率极低；无需专人值守，无需定期更换耗材，每年仅需1次常规巡检，大幅降低航道管理部门的运维成本（相比柴油发电机，年运维成本可降低70%以上）。</p>
-
-                </li>
-
-                <li class="advantage-item">
-
-                    <h3>稳定可靠，智能防护</h3>
-
-                    <p>配备智能控制系统，可自动监测水流速度、发电量、电压电流等参数，实现自动启动、自动调节、自动停机，适配不同水流工况；内置过压、过流、防雷、防腐蚀等防护功能，确保设备在恶劣天气、复杂水流环境下稳定运行，保障航标设备用电安全。</p>
-
-                </li>
-
-            </ul>
-
-        </section>
-
-
-
-<!-- 技术参数 -->
-
-        <section class="section" id="param">
-
-            <h2>三、技术参数</h2>
-
-            <table class="param-table">
-
-                <thead>
-
-                    <tr>
-
-                        <th>参数名称</th>
-
-                        <th>参数规格</th>
-
-</tr>
-
-                </thead>
-
-                <tbody>
-
-                    <tr>
-
-                        <td>启动水流速度</td>
-
-                        <td>≥0.5m/s</td>
-
-                    </tr>
-
-                    <tr>
-
-                        <td>额定水流速度</td>
-
-                        <td>1.5-3.0m/s</td>
-
-                    </tr>
-
-                    <tr>
-
-<td>额定功率</td>
-
- <td></td>
-
-                    </tr>
-
-<tr>
-
-                        <td>输出电压</td>
-
-                        <td></td>
-
-                    </tr>
-
-                    <tr>
-
-                        <td>防护等级</td>
-
-                        <td>）</td>
-
-                    </tr>
-
-                    <tr>
-
-                        <td>材质</td>
-
-                        <td></td>
-
-                    </tr>
-
- </tbody>
-
-            </table>
-
-        </section>
-
-    </div>
-
-
-
-<!-- 底部 -->
-
-    <footer>
-
-        <div class="container footer-content">
-
-            <p>航标船水流发电机 | 绿色赋能 航标永续</p>
-
-            <p>专注水上清洁供电解决方案，守护航道安全，助力低碳发展</p>
-
-            <p>联系我们：（可填写您的联系方式）</p>
-
+    </section>
+
+    <!-- 项目介绍 -->
+    <section id="about" class="section-padding bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold mb-4">项目介绍</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-3xl mx-auto">
+                    本项目针对传统航标船依赖蓄电池或岸电供电的痛点，研发出适配水上环境的小型水流发电机，为航标设备提供持续、稳定的绿色电力。
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <img src="https://picsum.photos/id/1019/800/600" alt="项目场景" class="rounded-xl shadow-lg w-full h-auto">
+                </div>
+                <div class="space-y-4">
+                    <div class="flex items-start space-x-4">
+                        <div class="bg-primary/10 p-3 rounded-full text-primary">
+                            <i class="fa-solid fa-anchor text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-2">应用背景</h3>
+                            <p class="text-gray-600">
+                                传统航标船需定期更换蓄电池或铺设供电线路，不仅维护成本高，还存在环境污染风险，尤其在偏远水域维护难度极大。
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <div class="bg-primary/10 p-3 rounded-full text-primary">
+                            <i class="fa-solid fa-lightbulb text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-2">解决方案</h3>
+                            <p class="text-gray-600">
+                                利用水流的动能转化为电能，为航标灯、监测设备等提供持续电力，实现"零能耗、零排放"的自主供电模式。
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <div class="bg-primary/10 p-3 rounded-full text-primary">
+                            <i class="fa-solid fa-earth-asia text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-2">项目价值</h3>
+                            <p class="text-gray-600">
+                                大幅降低航标运维成本，减少电池更换带来的环境污染，提升航标设备的可靠性和稳定性，助力智慧海洋建设。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
 
+    <!-- 产品优势 -->
+    <section id="features" class="section-padding bg-gray-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold mb-4">产品优势</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-3xl mx-auto">
+                    我们的水流发电机专为航标船场景量身定制，具备多项核心优势，确保在复杂水上环境下稳定运行。
+                </p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- 优势1 -->
+                <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow p-6">
+                    <div class="bg-secondary/10 w-16 h-16 rounded-full flex items-center justify-center mb-4 text-secondary">
+                        <i class="fa-solid fa-bolt text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">高效发电</h3>
+                    <p class="text-gray-600">
+                        采用高效水轮设计，低水流速下仍能稳定发电，转换效率达75%以上。
+                    </p>
+                </div>
+                
+                <!-- 优势2 -->
+                <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow p-6">
+                    <div class="bg-secondary/10 w-16 h-16 rounded-full flex items-center justify-center mb-4 text-secondary">
+                        <i class="fa-solid fa-shield-halved text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">防水防腐</h3>
+                    <p class="text-gray-600">
+                        全封闭设计，采用海洋级防腐材料，适应高盐雾、高湿度的水上环境。
+                    </p>
+                </div>
+                
+                <!-- 优势3 -->
+                <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow p-6">
+                    <div class="bg-secondary/10 w-16 h-16 rounded-full flex items-center justify-center mb-4 text-secondary">
+                        <i class="fa-solid fa-gears text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">维护简便</h3>
+                    <p class="text-gray-600">
+                        模块化设计，易拆装维护，无易损件，使用寿命长达10年以上。
+                    </p>
+                </div>
+                
+                <!-- 优势4 -->
+                <div class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow p-6">
+                    <div class="bg-secondary/10 w-16 h-16 rounded-full flex items-center justify-center mb-4 text-secondary">
+                        <i class="fa-solid fa-leaf text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">绿色环保</h3>
+                    <p class="text-gray-600">
+                        无噪音、无排放，不影响水生生态，真正实现清洁能源利用。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 工作原理 -->
+    <section id="working" class="section-padding bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold mb-4">工作原理</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-3xl mx-auto">
+                    水流发电机通过简单而高效的物理原理，将水流的动能转化为可用的电能。
+                </p>
+            </div>
+
+            <div class="max-w-4xl mx-auto">
+                <!-- 原理流程图 -->
+                <div class="relative mb-12">
+                    <div class="absolute left-1/2 top-0 bottom-0 w-1 bg-primary/20 transform -translate-x-1/2"></div>
+                    
+                    <!-- 步骤1 -->
+                    <div class="relative flex flex-col md:flex-row items-center mb-12">
+                        <div class="md:w-1/2 md:pr-12 md:text-right mb-4 md:mb-0">
+                            <h3 class="text-xl font-semibold mb-2">水流驱动</h3>
+                            <p class="text-gray-600">
+                                水流冲击发电机的水轮叶片，使水轮旋转，将水流的动能转化为机械旋转能。
+                            </p>
+                        </div>
+                        <div class="absolute left-1/2 w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white transform -translate-x-1/2 z-10">
+                            <span class="font-bold">1</span>
+                        </div>
+                        <div class="md:w-1/2 md:pl-12">
+                            <img src="https://picsum.photos/id/1029/400/300" alt="水流驱动" class="rounded-lg shadow-md w-full h-auto">
+                        </div>
+                    </div>
+                    
+                    <!-- 步骤2 -->
+                    <div class="relative flex flex-col md:flex-row items-center mb-12">
+                        <div class="md:w-1/2 md:pr-12 order-2 md:order-1">
+                            <img src="https://picsum.photos/id/1040/400/300" alt="机械能转换" class="rounded-lg shadow-md w-full h-auto">
+                        </div>
+                        <div class="absolute left-1/2 w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white transform -translate-x-1/2 z-10">
+                            <span class="font-bold">2</span>
+                        </div>
+                        <div class="md:w-1/2 md:pl-12 mb-4 md:mb-0 order-1 md:order-2">
+                            <h3 class="text-xl font-semibold mb-2">机械能转换</h3>
+                            <p class="text-gray-600">
+                                水轮带动发电机内部的转子旋转，通过电磁感应原理产生交流电。
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- 步骤3 -->
+                    <div class="relative flex flex-col md:flex-row items-center">
+                        <div class="md:w-1/2 md:pr-12 md:text-right mb-4 md:mb-0">
+                            <h3 class="text-xl font-semibold mb-2">电能存储与输出</h3>
+                            <p class="text-gray-600">
+                                产生的电能经过整流、稳压后，一部分直接供给航标设备，多余部分存储在蓄电池中备用。
+                            </p>
+                        </div>
+                        <div class="absolute left-1/2 w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white transform -translate-x-1/2 z-10">
+                            <span class="font-bold">3</span>
+                        </div>
+                        <div class="md:w-1/2 md:pl-12">
+                            <img src="https://picsum.photos/id/1002/400/300" alt="电能存储" class="rounded-lg shadow-md w-full h-auto">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系我们 - 简化版 -->
+    <section id="contact" class="section-padding bg-primary/5">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold mb-4">联系我们</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-3xl mx-auto">
+                    如果您对我们的航标船水流发电机项目感兴趣，欢迎随时联系我们，获取更多详细信息。
+                </p>
+            </div>
+
+            <!-- 简化后的联系方式展示 -->
+            <div class="max-w-3xl mx-auto">
+                <div class="bg-white rounded-xl shadow-md p-8">
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <!-- 联系方式 -->
+                        <div class="space-y-6">
+                            <h3 class="text-xl font-semibold">联系方式</h3>
+                            
+                            <div class="flex items-center space-x-4">
+                                <div class="bg-primary/10 p-3 rounded-full text-primary">
+                                    <i class="fa-solid fa-phone"></i>
+                                </div>
+                                <div>
+                                    <p class="text-gray-500 text-sm">联系电话</p>
+                                    <p class="font-medium text-lg">138-XXXX-XXXX</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center space-x-4">
+                                <div class="bg-primary/10 p-3 rounded-full text-primary">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <p class="text-gray-500 text-sm">电子邮箱</p>
+                                    <p class="font-medium text-lg">contact@waterpower.com</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center space-x-4">
+                                <div class="bg-primary/10 p-3 rounded-full text-primary">
+                                    <i class="fa-solid fa-map-marker-alt"></i>
+                                </div>
+                                <div>
+                                    <p class="text-gray-500 text-sm">公司地址</p>
+                                    <p class="font-medium">XX省XX市XX区XX路XX号</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 社交媒体 -->
+                        <div class="flex flex-col justify-between">
+                            <div>
+                                <h3 class="text-xl font-semibold mb-4">关注我们</h3>
+                                <div class="flex space-x-4">
+                                    <a href="#" class="bg-primary/10 w-12 h-12 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors text-xl">
+                                        <i class="fa-brands fa-weixin"></i>
+                                    </a>
+                                    <a href="#" class="bg-primary/10 w-12 h-12 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors text-xl">
+                                        <i class="fa-brands fa-weibo"></i>
+                                    </a>
+                                    <a href="#" class="bg-primary/10 w-12 h-12 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors text-xl">
+                                        <i class="fa-brands fa-qq"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <!-- 二维码 -->
+                            <div class="mt-6">
+                                <h3 class="text-xl font-semibold mb-3">公众号二维码</h3>
+                                <div class="bg-white p-2 inline-block rounded-lg border border-gray-200">
+                                    <img src="https://picsum.photos/id/1/120/120" alt="二维码" class="w-28 h-28">
+                                </div>
+                                <p class="text-gray-500 mt-2 text-sm">
+                                    扫码关注，获取更多项目信息
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <i class="fa-solid fa-water text-primary text-2xl"></i>
+                        <span class="text-xl font-bold">航标发电</span>
+                    </div>
+                    <p class="text-gray-400 mb-4">
+                        专注于水上清洁能源解决方案，为航标船提供高效、环保的发电设备。
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fa-brands fa-weixin text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fa-brands fa-weibo text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fa-brands fa-qq text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">快速链接</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-white transition-colors">首页</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition-colors">项目介绍</a></li>
+                        <li><a href="#features" class="text-gray-400 hover:text-white transition-colors">产品优势</a></li>
+                        <li><a href="#working" class="text-gray-400 hover:text-white transition-colors">工作原理</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors">联系我们</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">联系我们</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-center space-x-2 text-gray-400">
+                            <i class="fa-solid fa-phone"></i>
+                            <span>138-XXXX-XXXX</span>
+                        </li>
+                        <li class="flex items-center space-x-2 text-gray-400">
+                            <i class="fa-solid fa-envelope"></i>
+                            <span>contact@waterpower.com</span>
+                        </li>
+                        <li class="flex items-center space-x-2 text-gray-400">
+                            <i class="fa-solid fa-map-marker-alt"></i>
+                            <span>XX省XX市XX区XX路XX号</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">二维码</h4>
+                    <div class="bg-white p-2 inline-block rounded-lg">
+                        <img src="https://picsum.photos/id/1/120/120" alt="二维码" class="w-28 h-28">
+                    </div>
+                    <p class="text-gray-400 mt-2 text-sm">
+                        扫码关注公众号，获取更多信息
+                    </p>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>© 2025 航标船水流发电机 版权所有</p>
+            </div>
+        </div>
     </footer>
 
+    <!-- 返回顶部按钮 -->
+    <button id="backToTop" class="fixed bottom-6 right-6 w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white shadow-lg hover:bg-primary/90 transition-colors opacity-0 invisible">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script>
+        // 移动端菜单切换
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            const icon = menuBtn.querySelector('i');
+            if (mobileMenu.classList.contains('hidden')) {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            } else {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            }
+        });
+        
+        // 导航栏滚动效果
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('shadow-md');
+                header.classList.remove('shadow-sm');
+            } else {
+                header.classList.remove('shadow-md');
+                header.classList.add('shadow-sm');
+            }
+            
+            // 返回顶部按钮显示/隐藏
+            const backToTop = document.getElementById('backToTop');
+            if (window.scrollY > 300) {
+                backToTop.classList.remove('opacity-0', 'invisible');
+                backToTop.classList.add('opacity-100', 'visible');
+            } else {
+                backToTop.classList.add('opacity-0', 'invisible');
+                backToTop.classList.remove('opacity-100', 'visible');
+            }
+        });
+        
+        // 返回顶部功能
+        document.getElementById('backToTop').addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                // 关闭移动端菜单
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                    const icon = menuBtn.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
-
 </html>
-
